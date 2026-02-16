@@ -1,6 +1,6 @@
 # Unix 명령어 가이드 — 기초부터 실전까지
 
-Unix 명령어를 기초부터 실전 활용까지 정리한 가이드예요. 모든 명령어에 실제 실행 결과를 포함했어요.
+Unix 명령어를 기초부터 실전 활용까지 정리한 가이드. 모든 명령어에 실제 실행 결과를 포함.
 
 ## 목차
 
@@ -357,7 +357,7 @@ charlie
         diana
 ```
 
-> `comm` 출력은 탭으로 구분된 세 개 컬럼이에요. file1에만 있는 줄, file2에만 있는 줄, 양쪽 모두에 있는 줄 순서예요. 들여쓰기로 어느 컬럼에 속하는지 구분할 수 있어요.
+> `comm` 출력은 탭으로 구분된 세 개 컬럼. file1에만 있는 줄, file2에만 있는 줄, 양쪽 모두에 있는 줄 순서. 들여쓰기로 어느 컬럼에 속하는지 구분 가능.
 
 ---
 
@@ -459,7 +459,7 @@ sed -n '/START/,/END/p' config.txt              # Print between markers
 sed 's/^/  /' file.txt                           # Add 2-space indent
 ```
 
-> **BSD sed vs GNU sed:** macOS에는 BSD sed가 들어 있어서 `sed -i '' 's/...'`처럼 `-i` 뒤에 빈 문자열 인자가 필요해요. Linux의 GNU sed는 `sed -i 's/...'`로 바로 쓸 수 있고요.
+> **BSD sed vs GNU sed:** macOS에는 BSD sed가 들어 있어서 `sed -i '' 's/...'`처럼 `-i` 뒤에 빈 문자열 인자가 필요함. Linux의 GNU sed는 `sed -i 's/...'`로 바로 쓸 수 있음.
 
 **실행 결과:**
 
@@ -613,7 +613,7 @@ find . -name "*.ts" -print0 | xargs -0 grep "TODO"
 find . -name "*.bak" | xargs -I {} mv {} /backup/    # Move each file
 ```
 
-> **왜 `-print0 | xargs -0`을 쓸까요?** 기본적으로 `xargs`는 공백을 기준으로 인자를 나눠요. `my file.log` 같은 파일명이 `my`와 `file.log` 두 개로 분리되는 거죠. null 바이트를 구분자로 쓰면 이 문제를 피할 수 있어요.
+> **왜 `-print0 | xargs -0`인가?** 기본적으로 `xargs`는 공백 기준으로 인자를 나눔. `my file.log` 같은 파일명이 `my`와 `file.log` 두 개로 분리됨. null 바이트를 구분자로 쓰면 이 문제를 피할 수 있음.
 
 **실행 결과:**
 
@@ -655,7 +655,7 @@ $ find . -name "*.ts" -o -name "*.tsx" | xargs grep -n "import"
 
 ### 2.6 정규 표현식
 
-`grep`, `sed`, `awk`, `find` 등 대부분의 Unix 도구에서 쓸 수 있어요.
+`grep`, `sed`, `awk`, `find` 등 대부분의 Unix 도구에서 사용 가능.
 
 **메타 문자:**
 
@@ -838,7 +838,7 @@ rsync -avz -e ssh ./project/ user@host:/path/
 rsync -avz --exclude='node_modules' -e ssh ./project/ user@host:/path/
 ```
 
-> **scp vs rsync:** `scp`는 매번 전체를 복사해요. `rsync`는 변경된 부분만 전송하고요. 반복적으로 전송하거나 큰 디렉토리를 다룰 때는 항상 `rsync`를 쓰는 게 나아요.
+> **scp vs rsync:** `scp`는 매번 전체를 복사함. `rsync`는 변경된 부분만 전송. 반복 전송이나 큰 디렉토리에는 항상 `rsync`가 나음.
 
 ### 3.6 환경 변수
 
@@ -1180,7 +1180,7 @@ fi
 name=${1:-"default_name"}
 ```
 
-> **`set -e` 주의할 점:** `if` 조건 안의 명령이나 `||`, `&&` 체인 안의 명령은 실패해도 스크립트가 종료되지 않아요. 의도된 동작이에요. 의도적으로 실패를 무시하려면 `|| true`를 붙이면 돼요: `grep "maybe" file.txt || true`
+> **`set -e` 주의할 점:** `if` 조건이나 `||`, `&&` 체인 안의 명령은 실패해도 스크립트가 종료되지 않음. 의도된 동작. 의도적으로 실패를 무시하려면 `|| true`를 붙이면 됨: `grep "maybe" file.txt || true`
 
 ### 4.7 실전 스크립트 예제
 
@@ -1363,13 +1363,13 @@ Total lines:  12
 Errors:       3
 ```
 
-> `set -x`는 셸 스크립트 디버깅에서 가장 유용한 도구예요. 뭔가 안 될 때 문제 구간 앞에 `set -x`를 넣고 트레이스 출력을 읽어보세요.
+> `set -x`는 셸 스크립트 디버깅에서 가장 유용한 도구. 뭔가 안 될 때 문제 구간 앞에 `set -x`를 넣고 트레이스 출력을 읽어볼 것.
 
 ---
 
 ## 5. 흔한 실수 모음
 
-누구나 한 번쯤은 겪게 되는 실수를 모았어요.
+누구나 한 번쯤 겪는 실수 모음.
 
 ### 따옴표 처리
 
@@ -1480,13 +1480,13 @@ echo $?      # 1 — now it catches the failure
 
 ## 일상에서 쓸 수 있는 팁
 
-**`man`과 `--help`를 자주 쓰세요.** 옵션이 기억 안 날 때 `man grep`이나 `grep --help`가 제일 빨라요.
+**`man`과 `--help`를 자주 쓸 것.** 옵션이 기억 안 날 때 `man grep`이나 `grep --help`가 제일 빠름.
 
-**복잡한 명령은 점진적으로 만들어요.** 간단한 것부터 시작해서 pipe를 하나씩 추가하고, 매 단계마다 결과를 확인하면서 넘어가세요.
+**복잡한 명령은 점진적으로 만들 것.** 간단한 것부터 시작해서 pipe를 하나씩 추가하고, 매 단계마다 결과를 확인하면서 넘어감.
 
-**`history`와 `Ctrl+R`을 활용하세요.** 이전에 쓴 명령을 다시 타이핑하지 말고 검색하세요. `history | grep "docker"`로 과거 docker 명령을 찾을 수도 있어요.
+**`history`와 `Ctrl+R` 활용.** 이전에 쓴 명령을 다시 타이핑하지 말고 검색. `history | grep "docker"`로 과거 docker 명령을 찾을 수도 있음.
 
-**자주 쓰는 명령에 alias를 만들어 두세요.** `~/.bashrc`나 `~/.zshrc`에 추가하면 돼요:
+**자주 쓰는 명령에 alias를 만들어 둘 것.** `~/.bashrc`나 `~/.zshrc`에 추가:
 ```bash
 alias ll='ls -la'
 alias gs='git status'
@@ -1494,8 +1494,8 @@ alias gd='git diff'
 alias dc='docker compose'
 ```
 
-**`!!`과 `!$` 단축키를 써보세요.** `sudo !!`는 직전 명령을 sudo로 다시 실행해요. `!$`는 마지막 인자를 재사용하고요.
+**`!!`과 `!$` 단축키.** `sudo !!`는 직전 명령을 sudo로 다시 실행. `!$`는 마지막 인자를 재사용.
 
-**`xargs -0`을 써야 할 때를 알아두세요.** 파일명에 공백이나 특수 문자가 들어갈 수 있다면 `find | xargs` 대신 `find -print0 | xargs -0`을 쓰세요.
+**`xargs -0`을 써야 할 때.** 파일명에 공백이나 특수 문자가 들어갈 수 있으면 `find | xargs` 대신 `find -print0 | xargs -0` 사용.
 
-**변수에는 따옴표를 씌우세요.** `"$var"`가 거의 항상 맞는 형태예요. 따옴표 없는 `$var`는 공백에서 쪼개지고 glob이 확장돼서 스크립트 버그의 흔한 원인이 돼요.
+**변수에는 따옴표.** `"$var"`가 거의 항상 맞는 형태. 따옴표 없는 `$var`는 공백에서 쪼개지고 glob이 확장돼서 스크립트 버그의 흔한 원인.
